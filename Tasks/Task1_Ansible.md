@@ -95,7 +95,8 @@
 `host_key_cheking = false`  
 `inventory    =./hosts.txt`  
 `roles_path    =./roles`  
-`user@ubuntu:~/ansible$ cat hosts.txt`  
+
+`user@ubuntu:~/ansible$ nano hosts.txt`  
 `[group1]`  
 `linux1 ansible_host=192.168.1.20`  
 ``   
@@ -104,6 +105,7 @@
 ``   
 `[group3]`  
 `linux3 ansible_host=192.168.1.30`   
+
 `[iaas:children]`  
 `group1`  
 `group2` 
@@ -120,6 +122,23 @@
 - creating a empty file `/etc/iaac` with rigths `0500`  
 - fetch a linux distro name/version  
 
+`user@ubuntu:~/ansible/roles$ mkdir -p role_create_file/tasks && touch role_create_file/tasks/main.yml'
+`user@ubuntu:~/ansible/roles$ mkdir -p role_vos/tasks && touch role_vos/tasks/main.yml`
+`user@ubuntu:~/ansible/roles/role_create_file/tasks$ nano main.yml`
+`\---`    
+`\- name: create empty file`    
+ `file:`    
+  `path: "/etc/iaac"`    
+  `state: touch`    
+  `mode: 0500`  
+
+`user@ubuntu:~/ansible/roles/role_vos/tasks$ nano main.yml`
+`\---`    
+ `\- name: Check Dist Version`    
+  `shell: cat /etc/os-release`    
+  `register: response`    
+ `\- debug: msg="{{ response.stdout }}"`    
+
 `user@ubuntu:~/ansible/roles$ tree`    
 `.`    
 `├── role_create_file`    
@@ -130,20 +149,7 @@
 ​    `└── main.yml`    
 `4 directories, 2 files`    
     
-`user@ubuntu:~/ansible/roles/role_create_file/tasks$ cat main.yml`   
-`\---`    
-`\- name: create empty file`    
- `file:`    
-  `path: "/etc/iaac"`    
-  `state: touch`    
-  `mode: 0500`    
-
 `user@ubuntu:~/ansible/roles/role_vos/tasks$ cat main.yml`    
-`\---`    
- `\- name: Check Dist Version`    
-  `shell: cat /etc/os-release`    
-  `register: response`    
- `\- debug: msg="{{ response.stdout }}"`    
 
 `user@ubuntu:~/ansible$ tree` 
 `.`    
