@@ -1,0 +1,12 @@
+---
+- name: print linux distro version 
+  hosts: all
+# gather_facts: False
+ 
+  tasks:
+   - name: Check Dist Version
+     shell: cat /etc/os-release
+     register: response
+
+   - debug: msg="{{ response.stdout }}"
+
