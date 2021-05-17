@@ -1,2 +1,2 @@
 # global_logic
-example for GL 
+DevOps GL Basecamp- Spring
