@@ -122,24 +122,24 @@
 - creating a empty file `/etc/iaac` with rigths `0500`  
 - fetch a linux distro name/version  
 
-`user@ubuntu:~/ansible/roles$ mkdir -p role_create_file/tasks && touch role_create_file/tasks/main.yml'
-`user@ubuntu:~/ansible/roles$ mkdir -p role_vos/tasks && touch role_vos/tasks/main.yml`
-`user@ubuntu:~/ansible/roles/role_create_file/tasks$ nano main.yml`
-`\---`    
-`\- name: create empty file`    
- `file:`    
-  `path: "/etc/iaac"`    
-  `state: touch`    
-  `mode: 0500`  
+`user@ubuntu:~/ansible/roles$ mkdir -p role_create_file/tasks && touch role_create_file/tasks/main.yml'    
+`user@ubuntu:~/ansible/roles$ mkdir -p role_vos/tasks && touch role_vos/tasks/main.yml`    
+`user@ubuntu:~/ansible/roles/role_create_file/tasks$ nano main.yml`    
+`\---`        
+`\- name: create empty file`      
+ `file:`      
+  `path: "/etc/iaac"`      
+  `state: touch`      
+  `mode: 0500`    
 
-`user@ubuntu:~/ansible/roles/role_vos/tasks$ nano main.yml`
+`user@ubuntu:~/ansible/roles/role_vos/tasks$ nano main.yml`  
 `\---`    
- `\- name: Check Dist Version`    
-  `shell: cat /etc/os-release`    
-  `register: response`    
- `\- debug: msg="{{ response.stdout }}"`    
+ `\- name: Check Dist Version`      
+  `shell: cat /etc/os-release`      
+  `register: response`     
+ `\- debug: msg="{{ response.stdout }}"`      
 
-`user@ubuntu:~/ansible/roles$ tree`    
+`user@ubuntu:~/ansible/roles$ tree`      
 `.`    
 `├── role_create_file`    
 `│  └── tasks`    
