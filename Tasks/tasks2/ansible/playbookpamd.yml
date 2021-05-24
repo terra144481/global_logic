@@ -23,4 +23,4 @@
   #loops through both files - if existing module exists in both.
        loop:
         - login
-      # - sshd
+        - sshd
