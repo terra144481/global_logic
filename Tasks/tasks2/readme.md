@@ -12,11 +12,11 @@ machine and the test VM.
 
   
   
-  Создал два плейбука, изменений не произошло, хотя плейбук отработал... 
-    [playbook1](https://github.com/terra144481/global_logic/blob/main/Tasks/tasks2/ansible/playbookpam.yml)
-  Второй плейбук закрыл все соедиения от мастера к слейвам по SSH...
-    [playbook2](https://github.com/terra144481/global_logic/blob/main/Tasks/tasks2/ansible/playbookpamd.yml)
+  Создал два плейбука, изменений не произошло, хотя плейбук отработал...   
+    [playbook1](https://github.com/terra144481/global_logic/blob/main/Tasks/tasks2/ansible/playbookpam.yml)  
+  Второй плейбук закрыл все соедиения от мастера к слейвам по SSH...  
+    [playbook2](https://github.com/terra144481/global_logic/blob/main/Tasks/tasks2/ansible/playbookpamd.yml) 
     
-   Буду дорабатывать.
+   Пока не получается получить результаты целевых заданий. Буду дорабатывать...  
    
    
