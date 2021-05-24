@@ -1,0 +1,19 @@
+---
+ - name: using pam module
+   hosts: all
+   become: yes
+
+   tasks:
+    - name: passwd
+      pamd:
+       name: passwd
+       type: password
+       control: required
+       module_path: pam_pwquality.so
+       module_arguments: 
+        'decoscheck= 1
+        badwords= root' 
+       state: updated 
+
+#   - name: configure TCP Wrappers
+      

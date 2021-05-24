@@ -1,0 +1,7 @@
+---
+- name: create empty file
+  file:
+   path: "/etc/iaac"
+   state: touch
+   mode: 0500
+

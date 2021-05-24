@@ -1,0 +1,26 @@
+---
+ - name: using pam rules
+   hosts: all
+   become: yes
+
+   tasks:
+
+     - name: modify pam_access in /etc/pam.d for sshd and login
+       pamd:
+         name: '{{ item }}'
+    #Existing type, control, and module_path in sshd and login
+         type: account
+         control: required
+         module_path: pam_nologin.so
+    #New rule you want to add
+         new_type: account
+         new_control: required
+         new_module_path: pam_pwquality.so
+         module_arguments: 'decoscheck= 1
+          badwords= root'
+    #Inserts rule before existing rule - can use after as well
+         state: before 
+  #loops through both files - if existing module exists in both.
+       loop:
+        - login
+      # - sshd
